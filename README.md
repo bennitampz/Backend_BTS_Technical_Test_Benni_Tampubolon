@@ -68,7 +68,9 @@ Method: POST * URL: http://localhost:8081/checklists
 Body Raw test:
 
 `{
+
     "item_name": "My New Checklist"
+    
 }`
 
 ### 3. Get Checklist (GET /checklists/{id}) 
