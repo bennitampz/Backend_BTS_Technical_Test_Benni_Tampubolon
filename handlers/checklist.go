@@ -23,6 +23,15 @@ type createItemRequest struct {
 	ItemName string `json:"itemName"`
 }
 
+// checklistResponse defines the structure of the JSON response for a checklist.
+type checklistResponse struct {
+	ID        int       `json:"id"`
+	UserID    int       `json:"user_id"`
+	Name      string    `json:"name"`
+	CreatedAt time.Time `json:"created_at"`
+	UpdatedAt time.Time `json:"updated_at"`
+}
+
 // CreateChecklist handles the creation of a new checklist.
 func CreateChecklist(db *sql.DB) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
@@ -61,7 +70,15 @@ func CreateChecklist(db *sql.DB) http.HandlerFunc {
 		}
 		checklist.ID = int(id)
 
-		json.NewEncoder(w).Encode(checklist)
+		resp := checklistResponse{
+			ID:        checklist.ID,
+			UserID:    checklist.UserID,
+			Name:      checklist.ItemName,
+			CreatedAt: checklist.CreatedAt,
+			UpdatedAt: checklist.UpdatedAt,
+		}
+
+		json.NewEncoder(w).Encode(resp)
 	}
 }
 
@@ -108,7 +125,18 @@ func GetChecklists(db *sql.DB) http.HandlerFunc {
 			checklists = append(checklists, c)
 		}
 
-		json.NewEncoder(w).Encode(checklists)
+		var checklistResponses []checklistResponse
+		for _, checklist := range checklists {
+			checklistResponses = append(checklistResponses, checklistResponse{
+				ID:        checklist.ID,
+				UserID:    checklist.UserID,
+				Name:      checklist.ItemName,
+				CreatedAt: checklist.CreatedAt,
+				UpdatedAt: checklist.UpdatedAt,
+			})
+		}
+
+		json.NewEncoder(w).Encode(checklistResponses)
 	}
 }
 
@@ -141,7 +169,15 @@ func GetChecklist(db *sql.DB) http.HandlerFunc {
 			return
 		}
 
-		json.NewEncoder(w).Encode(checklist)
+		resp := checklistResponse{
+			ID:        checklist.ID,
+			UserID:    checklist.UserID,
+			Name:      checklist.ItemName,
+			CreatedAt: checklist.CreatedAt,
+			UpdatedAt: checklist.UpdatedAt,
+		}
+
+		json.NewEncoder(w).Encode(resp)
 	}
 }
 
@@ -196,13 +232,25 @@ func CreateItem(db *sql.DB) http.HandlerFunc {
 			http.Error(w, "Failed to get last insert id", http.StatusInternalServerError)
 			return
 		}
-		item := models.Item{
+
+		// Create a response with the desired "itemName" key
+		response := struct {
+			ID          int       `json:"id"`
+			ChecklistID int       `json:"checklist_id"`
+			ItemName    string    `json:"itemName"`
+			Completed   bool      `json:"completed"`
+			CreatedAt   time.Time `json:"created_at"`
+			UpdatedAt   time.Time `json:"updated_at"`
+		}{
 			ID:          int(id),
 			ChecklistID: checklistID,
-			Text:        req.ItemName, // Set the Text field here
+			ItemName:    req.ItemName,
+			Completed:   false,      // Default value
+			CreatedAt:   time.Now(), // You might want to fetch the actual created_at from the database
+			UpdatedAt:   time.Now(), // You might want to fetch the actual updated_at from the database
 		}
 
-		json.NewEncoder(w).Encode(item)
+		json.NewEncoder(w).Encode(response)
 	}
 }
 
@@ -330,6 +378,8 @@ func DeleteItem(db *sql.DB) http.HandlerFunc {
 		}
 
 		w.WriteHeader(http.StatusOK)
+		w.Header().Set("Content-Type", "application/json")
+		json.NewEncoder(w).Encode(map[string]string{"message": "Item Has Deleted"})
 	}
 }
 
