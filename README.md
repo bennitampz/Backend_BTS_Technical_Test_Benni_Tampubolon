@@ -84,7 +84,7 @@ Content-Type: application/json * Body (raw/JSON):
 
 Body Raw test:
 
-`{
+{
 
     "username": "testuser",
     
@@ -92,7 +92,7 @@ Body Raw test:
     
     "email": "test@example.com"
     
-}`
+}
 
 ### 2. Login (POST /login) 
 
@@ -103,13 +103,14 @@ Headers:
 Content-Type: application/json * Body (raw/JSON):
 Body Raw test:
 
-`{
+{
 
     "username": "testuser",
     
     "password": "testpassword"
     
-}`
+}
+
 
 ## Checklist Routes (Protected)
 
@@ -120,7 +121,8 @@ Method: GET * URL: http://localhost:8081/checklists
 Example Response:
 
 [
-  {
+
+ {
   
       "id": 1,
       
@@ -141,20 +143,20 @@ Example Response:
 Method: POST * URL: http://localhost:8081/checklists
 Body Raw test:
 
-`
+
 {
 
   "name": "My New Checklist"
 
 }
-`
+
 
 ### 3. Get Checklist (GET /checklists/{id}) 
 
 Method: GET * URL: http://localhost:8081/checklists/1
 
  Example Response:
- '
+ 
  {
  
     "id": 1,
@@ -168,7 +170,7 @@ Method: GET * URL: http://localhost:8081/checklists/1
     "updated_at": "2024-01-27 12:00:00"
     
 }
-'
+
 
 ### 4. Delete Checklist (DELETE /checklists/{id}
 
@@ -181,18 +183,26 @@ Method: DELETE * URL: http://localhost:8081/checklists/1
 Method: GET * URL: http://localhost:8081/checklists/1/items
 
 Example Response:
-`
+
 [
+
   {
+  
       "id": 1,
+      
       "checklist_id": 1,
+      
       "text": "First Item",
+      
       "completed": false,
+      
       "created_at": "2024-01-27 12:00:00",
+      
       "updated_at": "2024-01-27 12:00:00"
+      
   }
 ]
-`
+
 
 ### 2. Create Item (POST /checklists/{id}/items)  
 
@@ -200,13 +210,13 @@ Method: POST * URL: http://localhost:8081/checklists/1/items
 
 Body Raw test:
 
-`
+
 {
     
   "itemName": "My New Item"
 
 }
-`
+
 
 
 
@@ -215,8 +225,11 @@ Body Raw test:
 Method: PUT * URL: http://localhost:8081/checklists/1/items/1
 
 {
+
     "text": "Updated Item Text",
+    
     "completed": true
+    
 }
 
 ### 4. Delete Item (DELETE /checklists/{id}/items/{item_id}) 
