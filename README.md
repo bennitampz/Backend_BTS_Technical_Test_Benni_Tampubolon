@@ -2,7 +2,7 @@
 
 ## Deskripsi
 
-Repositori ini berisi implementasi backend untuk aplikasi checklist. Aplikasi ini menyediakan fitur untuk registrasi dan login pengguna, serta pengelolaan checklist dan item-item di dalamnya.
+Repositori ini berisi implementasi backend untuk aplikasi Notes App. Aplikasi ini menyediakan fitur untuk registrasi dan login pengguna, serta pengelolaan checklist dan item-item di dalamnya.
 
 ## Fitur
 
@@ -22,7 +22,7 @@ Repositori ini berisi implementasi backend untuk aplikasi checklist. Aplikasi in
 - **Memperbarui Item:** Memperbarui detail sebuah item dalam checklist.
 - **Menghapus Item:** Menghapus item dari sebuah checklist.
 
-# Cara Menjalankan Aplikasi Backend Checklist
+# Cara Menjalankan Aplikasi Backend Technical_Test
 
 Dokumen ini menjelaskan langkah-langkah untuk menjalankan aplikasi backend checklist yang dibuat dengan Go.
 
