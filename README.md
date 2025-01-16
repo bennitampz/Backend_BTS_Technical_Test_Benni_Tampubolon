@@ -237,15 +237,48 @@ Method: PUT + Bearer Token * URL: http://localhost:8081/checklists/1/items/1
 Method: DELETE + Bearer Token * URL: http://localhost:8081/checklists/1/items/1
 
 1. API login ✓
+
+![image](https://github.com/user-attachments/assets/3ad49c1d-5f1b-4f69-9cad-fd7c85da79f7)
+   
 2. API daftar baru ✓
-3. API untuk membuat checklist (berdasarkan contoh gambar 2, adalah kotak-kotak yang berwarna) ✓
-4. API untuk menghapus checklist ✓
-5. API untuk menampilkan checklist-checklist yang sudah dibuat ✓
-6. API Detail Checklist (Berisi item-item to-do yang sudah dibuat) ✓
-7. API untuk membuat item-item to-do di dalam checklist ✓
-8. API detail item ✓
-9. API untuk mengubah item-item di dalam checklist ✓
-10. API untuk mengubah status dari item di dalam checklist (misalkan item sudah selesai dilakukan) ✓
-11. API untuk menghapus item dari checklist ✓
+
+![image](https://github.com/user-attachments/assets/9382bca3-f482-4db3-9352-8763598a2342)
+
+5. API untuk membuat checklist (berdasarkan contoh gambar 2, adalah kotak-kotak yang berwarna) ✓
+
+![image](https://github.com/user-attachments/assets/baa52efe-3cac-451a-9fe8-2b03b0693370)
+
+6. API untuk menghapus checklist ✓
+
+![image](https://github.com/user-attachments/assets/035f1264-6e0a-43b2-a1b2-9a25f68a3231)
+
+8. API untuk menampilkan checklist-checklist yang sudah dibuat ✓
+
+![image](https://github.com/user-attachments/assets/b6e8fa88-f74f-4a47-9228-635549aa0ba0)
+
+10. API Detail Checklist (Berisi item-item to-do yang sudah dibuat) ✓
+
+![image](https://github.com/user-attachments/assets/33a258ae-0f63-4acd-ba8e-931903b29c6c)
+    
+12. API untuk membuat item-item to-do di dalam checklist ✓
+
+![image](https://github.com/user-attachments/assets/de3b50a1-6a3e-407b-8fcb-33c1914079dc)
+
+14. API detail item ✓
+
+![image](https://github.com/user-attachments/assets/a8bc5bf9-daf6-45b8-b9e5-f7ddb416e5f5)
+
+
+16. API untuk mengubah item-item di dalam checklist ✓
+
+![image](https://github.com/user-attachments/assets/4ac47768-5774-4d5b-b0ae-93187181857f)
+
+18. API untuk mengubah status dari item di dalam checklist (misalkan item sudah selesai dilakukan) ✓
+
+![image](https://github.com/user-attachments/assets/7865e01d-2801-4a18-b250-ab248a861156)
+
+20. API untuk menghapus item dari checklist ✓
+
+![image](https://github.com/user-attachments/assets/8e589b3d-36c9-4a45-8090-5784e5fd4271)
 
 END 
