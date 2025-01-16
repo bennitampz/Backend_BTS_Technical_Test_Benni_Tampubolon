@@ -27,7 +27,9 @@ func Register(db *sql.DB) http.HandlerFunc {
 			return
 		}
 
+		// Respond with a success message
 		w.WriteHeader(http.StatusCreated)
+		json.NewEncoder(w).Encode(map[string]string{"message": "User Created Successfully"})
 	}
 }
 

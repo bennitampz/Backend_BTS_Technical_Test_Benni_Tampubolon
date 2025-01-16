@@ -148,6 +148,8 @@ func DeleteChecklist(db *sql.DB) http.HandlerFunc {
 		}
 
 		w.WriteHeader(http.StatusOK)
+		w.Header().Set("Content-Type", "application/json")
+		json.NewEncoder(w).Encode(map[string]string{"message": "Checklist has Deleted"})
 	}
 }
 
