@@ -24,7 +24,7 @@ Repositori ini berisi implementasi backend untuk aplikasi Notes App. Aplikasi in
 
 # Cara Menjalankan Aplikasi Backend Technical_Test
 
-Dokumen ini menjelaskan langkah-langkah untuk menjalankan aplikasi backend checklist yang dibuat dengan Go.
+Dokumen ini menjelaskan langkah-langkah untuk menjalankan aplikasi backend NoteSApp yang dibuat dengan Go.
 
 ## Prasyarat
 
@@ -66,7 +66,7 @@ Pastikan Anda telah menginstal Go (Golang) di sistem Anda. Anda dapat mengunduh 
 
 ## Informasi Tambahan
 
-- Pastikan Anda telah mengkonfigurasi database di ./config/database.go dan variabel lingkungan yang diperlukan sebelum menjalankan aplikasi.
+- Pastikan Anda telah mengkonfigurasi database di .env dan variabel lingkungan yang diperlukan sebelum menjalankan aplikasi.
 - Anda dapat melihat dokumentasi API lengkap di README utama untuk mengetahui endpoint yang tersedia.
 - Jika Anda mengalami masalah, periksa log aplikasi untuk informasi lebih lanjut.
 
@@ -74,7 +74,7 @@ Pastikan Anda telah menginstal Go (Golang) di sistem Anda. Anda dapat mengunduh 
 
 ##  Authentication Routes
 
-Endpoint telah terbagi antara endpoint yang membutuh JWT token setelah login dengan label PROTECTED dan label bebas
+Endpoint telah terbagi antara endpoint yang membutuhkan JWT token setelah login dengan label PROTECTED dan label bebas
 
 ### 1. Register (POST /register) 
 
