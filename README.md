@@ -141,11 +141,13 @@ Example Response:
 Method: POST * URL: http://localhost:8081/checklists
 Body Raw test:
 
-`{
+`
+{
 
-    "item_name": "My New Checklist"
-    
-}`
+  "name": "My New Checklist"
+
+}
+`
 
 ### 3. Get Checklist (GET /checklists/{id}) 
 
@@ -198,11 +200,14 @@ Method: POST * URL: http://localhost:8081/checklists/1/items
 
 Body Raw test:
 
+`
 {
-
-    "text": "My New Item"
     
+  "itemName": "My New Item"
+
 }
+`
+
 
 
 ### 3. Update Item (PUT /checklists/{id}/items/{item_id})  
@@ -219,3 +224,4 @@ Method: PUT * URL: http://localhost:8081/checklists/1/items/1
 Method: DELETE * URL: http://localhost:8081/checklists/1/items/1
 
 
+END 

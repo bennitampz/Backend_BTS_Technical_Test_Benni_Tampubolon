@@ -13,11 +13,21 @@ import (
 	"github.com/gorilla/mux"
 )
 
+// createChecklistRequest defines the expected JSON request body for creating a checklist.
+type createChecklistRequest struct {
+	Name string `json:"name"`
+}
+
+// createItemRequest defines the expected JSON request body for creating an item.
+type createItemRequest struct {
+	ItemName string `json:"itemName"`
+}
+
 // CreateChecklist handles the creation of a new checklist.
 func CreateChecklist(db *sql.DB) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		var checklist models.Checklist
-		err := json.NewDecoder(r.Body).Decode(&checklist)
+		var req createChecklistRequest
+		err := json.NewDecoder(r.Body).Decode(&req)
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusBadRequest)
 			return
@@ -32,8 +42,13 @@ func CreateChecklist(db *sql.DB) http.HandlerFunc {
 			return
 		}
 
+		checklist := models.Checklist{
+			ItemName: req.Name,
+			UserID:   userID,
+		}
+
 		result, err := db.Exec("INSERT INTO checklists (user_id, item_name) VALUES (?, ?)",
-			userID, checklist.ItemName)
+			checklist.UserID, checklist.ItemName)
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusBadRequest)
 			return
@@ -45,7 +60,6 @@ func CreateChecklist(db *sql.DB) http.HandlerFunc {
 			return
 		}
 		checklist.ID = int(id)
-		checklist.UserID = userID
 
 		json.NewEncoder(w).Encode(checklist)
 	}
@@ -163,15 +177,15 @@ func CreateItem(db *sql.DB) http.HandlerFunc {
 			return
 		}
 
-		var item models.Item
-		err = json.NewDecoder(r.Body).Decode(&item)
+		var req createItemRequest
+		err = json.NewDecoder(r.Body).Decode(&req)
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusBadRequest)
 			return
 		}
 
 		result, err := db.Exec("INSERT INTO items (checklist_id, text) VALUES (?, ?)",
-			checklistID, item.Text)
+			checklistID, req.ItemName)
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusBadRequest)
 			return
@@ -182,8 +196,11 @@ func CreateItem(db *sql.DB) http.HandlerFunc {
 			http.Error(w, "Failed to get last insert id", http.StatusInternalServerError)
 			return
 		}
-		item.ID = int(id)
-		item.ChecklistID = checklistID
+		item := models.Item{
+			ID:          int(id),
+			ChecklistID: checklistID,
+			Text:        req.ItemName, // Set the Text field here
+		}
 
 		json.NewEncoder(w).Encode(item)
 	}
