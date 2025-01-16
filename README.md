@@ -116,7 +116,7 @@ Body Raw test:
 
 ### 1. Get All Checklists (GET /checklists) 
 
-Method: GET * URL: http://localhost:8081/checklists
+Method: GET + Bearer Token * URL: http://localhost:8081/checklists
 
 Example Response:
 
@@ -140,7 +140,7 @@ Example Response:
 
 ### 2. Create Checklist (POST /checklists)  
 
-Method: POST * URL: http://localhost:8081/checklists
+Method: POST + Bearer Token * URL: http://localhost:8081/checklists
 Body Raw test:
 
 
@@ -153,7 +153,7 @@ Body Raw test:
 
 ### 3. Get Checklist (GET /checklists/{id}) 
 
-Method: GET * URL: http://localhost:8081/checklists/1
+Method: GET + Bearer Token * URL: http://localhost:8081/checklists/1
 
  Example Response:
  
@@ -174,13 +174,13 @@ Method: GET * URL: http://localhost:8081/checklists/1
 
 ### 4. Delete Checklist (DELETE /checklists/{id}
 
-Method: DELETE * URL: http://localhost:8081/checklists/1
+Method: DELETE + Bearer Token * URL: http://localhost:8081/checklists/1
 
 ## 3. Item Routes (Protected)
 
 ### 1. Get Items (GET /checklists/{id}/items) 
 
-Method: GET * URL: http://localhost:8081/checklists/1/items
+Method: GET + Bearer Token * URL: http://localhost:8081/checklists/1/items
 
 Example Response:
 
@@ -206,7 +206,7 @@ Example Response:
 
 ### 2. Create Item (POST /checklists/{id}/items)  
 
-Method: POST * URL: http://localhost:8081/checklists/1/items
+Method: POST + Bearer Token * URL: http://localhost:8081/checklists/1/items
 
 Body Raw test:
 
@@ -222,7 +222,7 @@ Body Raw test:
 
 ### 3. Update Item (PUT /checklists/{id}/items/{item_id})  
 
-Method: PUT * URL: http://localhost:8081/checklists/1/items/1
+Method: PUT + Bearer Token * URL: http://localhost:8081/checklists/1/items/1
 
 {
 
@@ -234,7 +234,7 @@ Method: PUT * URL: http://localhost:8081/checklists/1/items/1
 
 ### 4. Delete Item (DELETE /checklists/{id}/items/{item_id}) 
 
-Method: DELETE * URL: http://localhost:8081/checklists/1/items/1
+Method: DELETE + Bearer Token * URL: http://localhost:8081/checklists/1/items/1
 
 
 END 
