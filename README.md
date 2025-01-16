@@ -15,6 +15,7 @@ Content-Type: application/json * Body (raw/JSON):
     "password": "testpassword",
     
     "email": "test@example.com"
+    
 }`
 
 ### 2. Login (POST /login) 
@@ -25,8 +26,11 @@ Headers:
 
 Content-Type: application/json * Body (raw/JSON):
 `{
+
     "username": "testuser",
+    
     "password": "testpassword"
+    
 }`
 
 ## Checklist Routes (Protected)
@@ -39,12 +43,19 @@ Example Response:
 
 [
   {
+  
       "id": 1,
+      
       "user_id": 1,
+      
       "item_name": "My First Checklist",
+      
       "created_at": "2024-01-27 12:00:00",
+      
       "updated_at": "2024-01-27 12:00:00"
+      
   }
+  
 ]
 
 ### 2. Create Checklist (POST /checklists)  
@@ -62,11 +73,17 @@ Method: GET * URL: http://localhost:8081/checklists/1
  Example Response:
  '
  {
+ 
     "id": 1,
+    
     "user_id": 1,
+    
     "item_name": "My First Checklist",
+    
     "created_at": "2024-01-27 12:00:00",
+    
     "updated_at": "2024-01-27 12:00:00"
+    
 }
 '
 
