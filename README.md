@@ -13,4 +13,4 @@ Content-Type: application/json * Body (raw/JSON):
     "password": "testpassword",
     
     "email": "test@example.com"
-}
+}`
