@@ -236,5 +236,16 @@ Method: PUT + Bearer Token * URL: http://localhost:8081/checklists/1/items/1
 
 Method: DELETE + Bearer Token * URL: http://localhost:8081/checklists/1/items/1
 
+1. API login ✓
+2. API daftar baru ✓
+3. API untuk membuat checklist (berdasarkan contoh gambar 2, adalah kotak-kotak yang berwarna) ✓
+4. API untuk menghapus checklist ✓
+5. API untuk menampilkan checklist-checklist yang sudah dibuat ✓
+6. API Detail Checklist (Berisi item-item to-do yang sudah dibuat) ✓
+7. API untuk membuat item-item to-do di dalam checklist ✓
+8. API detail item ✓
+9. API untuk mengubah item-item di dalam checklist ✓
+10. API untuk mengubah status dari item di dalam checklist (misalkan item sudah selesai dilakukan) ✓
+11. API untuk menghapus item dari checklist ✓
 
 END 
